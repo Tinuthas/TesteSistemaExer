@@ -2,6 +2,7 @@ package br.com.fiap.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,49 @@ public class Usuario {
 	@Column(name="nom_usuario")
 	private String nome;
 	
-	@ManyToMany(mappedBy="usuarios")
-	private List<ItemTeste> itensTeste;
+	@ManyToMany(mappedBy="usuarios", cascade=CascadeType.PERSIST)
+	private List<ItemTeste> itens;
+	
+	public Usuario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Usuario(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+	public Usuario(int codigo, String nome) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<ItemTeste> getItensTeste() {
+		return itens;
+	}
+
+	public void setItensTeste(List<ItemTeste> itensTeste) {
+		this.itens = itensTeste;
+	}
+	
+	
 
 }

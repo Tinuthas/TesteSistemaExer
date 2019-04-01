@@ -30,10 +30,10 @@ public class ItemTeste {
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cod_caso_teste")
-	private CasoTeste casoTeste;
+	private CasoTeste caso;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
-	@JoinTable(name="TAB_ITEM_TESTE_USUARIO", joinColumns=@JoinColumn(name="cod_usuario"), inverseJoinColumns=@JoinColumn(name="cod_item"))
+	@JoinTable(name="TAB_ITEM_TESTE_USUARIO", joinColumns=@JoinColumn(name="cod_item_teste"), inverseJoinColumns=@JoinColumn(name="cod_usuario"))
 	private List<Usuario> usuarios;	
 	
 	public ItemTeste(String descricao) {
@@ -69,11 +69,11 @@ public class ItemTeste {
 	}
 
 	public CasoTeste getCasoTeste() {
-		return casoTeste;
+		return caso;
 	}
 
 	public void setCasoTeste(CasoTeste casoTeste) {
-		this.casoTeste = casoTeste;
+		this.caso = casoTeste;
 	}
 
 	public List<Usuario> getUsuarios() {

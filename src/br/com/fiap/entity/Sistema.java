@@ -1,5 +1,7 @@
 package br.com.fiap.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class Sistema {
 	private String nome;
 	
 	@OneToMany(mappedBy="sistema")
-	private CasoTeste casoTeste;
+	private List<CasoTeste> casos;
 
 	public Sistema(String nome) {
 		super();

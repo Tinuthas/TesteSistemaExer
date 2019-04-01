@@ -1,5 +1,7 @@
 package br.com.fiap.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,24 +34,20 @@ public class CasoTeste {
 	@JoinColumn(name="cod_sistema")
 	private Sistema sistema;
 	
-	@OneToMany(mappedBy="casoTeste")
-	private ItemTeste itemTeste;
+	@OneToMany(mappedBy="caso")
+	private List<ItemTeste> itens;
 	
-	public CasoTeste(String nome, String descricao, Sistema sistema, ItemTeste itemTeste) {
+	public CasoTeste(String nome, String descricao) {
 		super();
 		this.nome = nome;
-		this.descricao = descricao;
-		this.sistema = sistema;
-		this.itemTeste = itemTeste;
+		this.descricao = descricao;;
 	}
 
-	public CasoTeste(int codigo, String nome, String descricao, Sistema sistema, ItemTeste itemTeste) {
+	public CasoTeste(int codigo, String nome, String descricao) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
-		this.descricao = descricao;
-		this.sistema = sistema;
-		this.itemTeste = itemTeste;
+		this.descricao = descricao;;
 	}
 
 	public CasoTeste() {
